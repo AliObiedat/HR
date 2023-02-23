@@ -1,10 +1,11 @@
 @props([
-    'disabled' => false,
-    'withicon' => false
+'disabled' => false,
+'withicon' => false
 ])
 
 @php
-    $withiconClasses = $withicon ? 'pl-11 pr-4' : 'px-4'
+    $pDirection = session('applocale') == 'ar' ? 'pr-11 pl-4' : 'pl-11 pr-4';
+    $withiconClasses = $withicon ? $pDirection : 'px-4'
 @endphp
 
 <input

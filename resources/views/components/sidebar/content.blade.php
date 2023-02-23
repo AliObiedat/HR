@@ -44,15 +44,9 @@
         x-show="isSidebarOpen || isSidebarHovered"
         class="text-sm text-gray-500"
     >
-        Dummy Links
+        {{ __('Pages') }}
     </div>
 
-    @php
-        $links = array_fill(0, 20, '');
-    @endphp
-
-    @foreach ($links as $index => $link)
-        <x-sidebar.link title="Dummy link {{ $index + 1 }}" href="#" />
-    @endforeach
+    <x-sidebar.link title="Dummy link" href="#" />
 
 </x-perfect-scrollbar>

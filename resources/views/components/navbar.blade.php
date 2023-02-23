@@ -51,12 +51,12 @@
                 class="w-6 h-6"
             />
         </x-button>
-        <x-dropdown align="right" width="48">
+        <x-dropdown align="{{ session('applocale') == 'ar' ? 'left' : 'right' }}" width="48">
             <x-slot name="trigger">
                 <button
                     class="flex items-center p-2 text-sm font-medium text-gray-500 rounded-md transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none focus:ring focus:ring-purple-500 focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark-eval-1 dark:text-gray-400 dark:hover:text-gray-200"
                 >
-                    <div>{{ Config::get('languages')[App::getLocale()] }}</div>
+                    <div>{{ \Illuminate\Support\Facades\Config::get('languages')[\Illuminate\Support\Facades\App::getLocale()] }}</div>
 
                     <div class="ml-1">
                         <svg
@@ -75,8 +75,8 @@
             </x-slot>
 
             <x-slot name="content">
-                @foreach (Config::get('languages') as $lang => $language)
-                    @if ($lang != App::getLocale())
+                @foreach (\Illuminate\Support\Facades\Config::get('languages') as $lang => $language)
+                    @if ($lang != \Illuminate\Support\Facades\App::getLocale())
                         <x-dropdown-link
                             :href="route('lang.switch', $lang)"
                         >
@@ -86,7 +86,7 @@
                 @endforeach
             </x-slot>
         </x-dropdown>
-        <x-dropdown align="right" width="48">
+        <x-dropdown align="{{ session('applocale') == 'ar' ? 'left' : 'right' }}" width="48">
             <x-slot name="trigger">
                 <button
                     class="flex items-center p-2 text-sm font-medium text-gray-500 rounded-md transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none focus:ring focus:ring-purple-500 focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark-eval-1 dark:text-gray-400 dark:hover:text-gray-200"
@@ -147,11 +147,11 @@
         variant="secondary"
         sr-text="Search"
     >
-        <x-heroicon-o-search aria-hidden="true" class="w-6 h-6" />
+        <x-heroicon-o-search aria-hidden="true" class="w-6 h-6"/>
     </x-button>
 
     <a href="{{ route('dashboard') }}">
-        <x-application-logo aria-hidden="true" class="w-10 h-10" />
+        <x-application-logo aria-hidden="true" class="w-10 h-10"/>
 
         <span class="sr-only">Dashboard</span>
     </a>

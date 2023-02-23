@@ -24,13 +24,13 @@
             class="text-base font-medium whitespace-nowrap"
             x-show="isSidebarOpen || isSidebarHovered"
         >
-            {{ $title }}
+            {{ __("$title") }}
         </span>
 
         <span
             x-show="isSidebarOpen || isSidebarHovered"
             aria-hidden="true"
-            class="relative block ml-auto w-6 h-6"
+            class="relative block {{ \Illuminate\Support\Facades\App::getLocale() ? 'mr-auto' : 'ml-auto' }} w-6 h-6"
         >
             <span
                 :class="open ? '-rotate-45' : 'rotate-45'"
@@ -55,7 +55,7 @@
             class="text-base font-medium"
             x-show="isSidebarOpen || isSidebarHovered"
         >
-            {{ $title }}
+            {{ __("$title") }}
         </span>
     </a>
 @endif
