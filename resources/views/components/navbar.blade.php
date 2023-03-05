@@ -56,9 +56,12 @@
                 <button
                     class="flex items-center p-2 text-sm font-medium text-gray-500 rounded-md transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none focus:ring focus:ring-purple-500 focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark-eval-1 dark:text-gray-400 dark:hover:text-gray-200"
                 >
-                    <div>{{ \Illuminate\Support\Facades\Config::get('languages')[\Illuminate\Support\Facades\App::getLocale()] }}</div>
+                    <div>
+                        <i class="fa-solid fa-earth-asia mx-1"></i>
+                        {{ \Illuminate\Support\Facades\Config::get('languages')[\Illuminate\Support\Facades\App::getLocale()] }}
+                    </div>
 
-                    <div class="ml-1">
+                    <div class="mx-1">
                         <svg
                             class="w-4 h-4 fill-current"
                             xmlns="http://www.w3.org/2000/svg"
@@ -91,9 +94,12 @@
                 <button
                     class="flex items-center p-2 text-sm font-medium text-gray-500 rounded-md transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none focus:ring focus:ring-purple-500 focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark-eval-1 dark:text-gray-400 dark:hover:text-gray-200"
                 >
-                    <div>{{ Auth::user()->name }}</div>
+                    <div class="flex justify-items-center items-center">
+                        <img class="w-6 h-6 rounded-full mx-2" src="{{ auth()->user()->image ?? asset('images/user-profile.png') }}" alt="profile">
+                        {{ auth()->user()->name }}
+                    </div>
 
-                    <div class="ml-1">
+                    <div class="mx-1">
                         <svg
                             class="w-4 h-4 fill-current"
                             xmlns="http://www.w3.org/2000/svg"
@@ -114,6 +120,7 @@
                 <x-dropdown-link
                     :href="route('profile.edit')"
                 >
+                    <i class="fa-solid fa-user mx-1"></i>
                     {{ __('Profile') }}
                 </x-dropdown-link>
 
@@ -125,7 +132,10 @@
                         :href="route('logout')"
                         onclick="event.preventDefault(); this.closest('form').submit();"
                     >
-                        {{ __('Log Out') }}
+                        <div class="text-red-500">
+                            <i class="fa-solid fa-right-from-bracket mx-1"></i>
+                            {{ __('Log Out') }}
+                        </div>
                     </x-dropdown-link>
                 </form>
             </x-slot>
